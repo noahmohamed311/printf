@@ -1,0 +1,75 @@
+.TH _printf 3 "November 03 2021" "Holberton School"
+.SH NAME
+.B _printf
+.SH SYNOPSIS
+.B #include "main.h"
+This file contains the prototypes for all unique functions and data types used in _printf.
+.sp
+.B int _printf(const char *format, ...);
+Prototype for function _printf. This function writes formatted data to standard out via a struct type containing special formatting specifiers as well as the functions used to print the specific type of data. It returns an integer containing the length of the printed format string.
+.sp
+.B int _putchar(char c);
+Prototype for function _putchar which takes a character and uses write to push it to standard output.
+.sp
+.B int print_string(va_list s);
+Prototype for function print_string which takes a character pointer for va_list and uses _putchar to push it to standard output.
+.sp
+.B int print_char(va_list c);
+Prototype for function print_char which takes a character from va_list and uses _putchar to push it to standard output.
+.sp
+.B int print_int(va_list i);
+Prototype for function print_int which takes an integer from va_list and uses _putchar to push it to standard output.
+.sp
+.SH DESCRIPTION
+The _printf function takes a constant char *format, and a variable amount of arguments and prints it, according to specified formatting contained in format. If successful it returns the length of printed characters in the form of an int. If unsuccesful it will return a -1.
+.sp
+.B Format string
+A format string that can contain any character. It may contain certain specifiers which control the format of printing.
+.sp
+.B Struct data type: Specifier
+
+.sp
+Specify the data type of the variable that its going to be printed with a preceding '%' character. The following characters specify the type of data to be formatted.
+
+.sp
+.B i, d
+- Prints signed intergers to the stdout.
+.sp
+.B c
+- Prints a single character to the stdout.
+.sp
+.B s
+- Prints a string to stdout.
+.sp
+.B % 
+- Will print a %  to the stdout.
+.sp
+.SH Examples
+.sp
+.B Usage examples:
+.sp
+.B example:
+_printf("This is a simple string printed to standard output.")
+.sp
+.I Produces:
+.B This is a simple string printed to standard output.
+.sp
+.B example:
+_printf("This is a formatted char: %c", 'K')
+.sp
+.I Produces:
+.B This is a formatted char: K
+.sp
+.B example
+_printf("This is a formatted string %s. Followed by a char %c, and two ints %d, %i.", "I am the string", 'A', 2, 27)
+.sp
+.I Produces:
+.B This is a formatted string I am the string. Followed by a char A, and two ints 2, 27.
+.SH NOTES
+_printf depends of system call write() which is implemented through a custom function called _putchar. 
+.sp
+_printf is also dependent upon a unique struct type called specifiers. It contains three unique functions print_int, print_char, and print_string.
+.SH BUGS
+No known bugs as of publication. 
+.SH AUTHORS
+Written by Hanan akmel and Noah mohamed
